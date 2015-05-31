@@ -13,7 +13,7 @@ function fish_right_prompt
     test $code -ne 0; and echo (err); or echo (fst)
   end
 
-  set -l base (basename $PWD)
+  set -l base (basename "$PWD")
 
   if test "$PWD" != "/"
     prompt_pwd | sed "s|~|"(status::color)"ᴦ"(off)"|g" \
