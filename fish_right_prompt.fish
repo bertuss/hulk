@@ -5,6 +5,10 @@ function fish_right_prompt
     test $code -ne 0; and echo (hulk::err); or echo (hulk::fst)
   end
 
+  function hulk::branch_name
+    git_branch_name | tr '[:lower:]' '[:upper:]'
+  end
+
   set -l base (basename "$PWD")
 
   if test "$PWD" != "/"
@@ -15,7 +19,7 @@ function fish_right_prompt
 
   if test -d .git
     echo (hulk::status::color)" ≡ "(hulk::snd)(begin
-      git_is_touched; and git_branch_name; or echo (hulk::dim)(git_branch_name)
+      git_is_touched; and hulk::branch_name; or echo (hulk::dim)(hulk::branch_name)
     end)(off)
   else
     echo (hulk::status::color)" ≡"(off)
