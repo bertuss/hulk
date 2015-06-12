@@ -1,9 +1,9 @@
-[![](https://img.shields.io/badge/Wahoo-Theme-00b0ff.svg?style=flat-square)][Wahoo]
+[![](https://img.shields.io/badge/Themes-Wahoo-00b0ff.svg?style=flat-square)][Wahoo]
 ![](https://img.shields.io/badge/License-MIT-33CC33.svg?style=flat-square)
 
 # :anger: _Hulk_
 
-> [Fishshell](fishshell.com) Theme inspired by The Hulk
+> Theme for [Fishshell](fishshell.com) inspired by The Hulk
 
 ## Features
 
