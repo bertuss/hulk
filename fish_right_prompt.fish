@@ -1,3 +1,15 @@
+function git_branch_name -d "Get current branch name"
+  git_is_repo; and begin
+    command git symbolic-ref --short HEAD
+  end
+end
+
+function git_is_touched -d "Check if repo has any changes"
+  git_is_repo; and begin
+    test -n (echo (command git status --porcelain))
+  end
+end
+
 function fish_right_prompt
   set -l code $status
 
