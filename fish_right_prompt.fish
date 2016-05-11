@@ -28,9 +28,9 @@ function fish_right_prompt
   set -l base (basename "$PWD")
 
   if test "$PWD" != "/"
-    prompt_pwd | sed "s|~|"(hulk::status::color)"ᴦ"(off)"|g" \
-    | sed "s|/|"(hulk::status::color)"/"(off)(hulk::dim)"|g" \
-    | sed "s|$base|"(hulk::trd)" $base"(off)"|g"
+    prompt_pwd | sed "s|$base|"(hulk::trd)" $base"(off)"|g" \
+    | sed "s|~|"(hulk::status::color)"ᴦ"(off)"|g" \
+    | sed "s|/|"(hulk::status::color)"/"(off)(hulk::dim)"|g"
   end
 
   if test -d .git
