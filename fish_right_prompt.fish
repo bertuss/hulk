@@ -33,7 +33,7 @@ function fish_right_prompt
     | sed "s|$base|"(hulk::trd)" $base"(off)"|g"
   end
 
-  if test -d .git
+  if git_is_repo
     echo (hulk::status::color)" ≡ "(hulk::snd)(begin
       git_is_touched; and hulk::branch_name; or echo (hulk::dim)(hulk::branch_name)
     end)(off)
