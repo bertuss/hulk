@@ -11,5 +11,5 @@ function fish_prompt
     test $code -ne 0; and thor::err; or thor::snd
   end
   printf (thor::dim)(date +%H(thor::status::color):(thor::dim)%M)(off)
-  printf (thor::status::color)" $ "(off)
+  printf (thor::status::color)" ≡ "(off)
 end
