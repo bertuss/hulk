@@ -17,27 +17,27 @@ end
 function fish_right_prompt
   set -l code $status
 
-  function hulk::status::color -S
-    test $code -ne 0; and echo (hulk::err); or echo (hulk::fst)
+  function thor::status::color -S
+    test $code -ne 0; and echo (thor::err); or echo (thor::fst)
   end
 
-  function hulk::branch_name
-    git_branch_name | tr '[:lower:]' '[:upper:]'
+  function thor::branch_name
+    git_branch_name
   end
 
   set -l base (basename "$PWD")
 
   if test "$PWD" != "/"
-    prompt_pwd | sed "s|$base|"(hulk::trd)" $base"(off)"|g" \
-    | sed "s|~|"(hulk::status::color)"ᴦ"(off)"|g" \
-    | sed "s|/|"(hulk::status::color)"/"(off)(hulk::dim)"|g"
+    prompt_pwd | sed "s|$base|"(thor::trd)" $base"(off)"|g" \
+    | sed "s|~|"(thor::status::color)"ᴦ"(off)"|g" \
+    | sed "s|/|"(thor::status::color)"/"(off)(thor::dim)"|g"
   end
 
   if git_is_repo
-    echo (hulk::status::color)" ≡ "(hulk::snd)(begin
-      git_is_touched; and hulk::branch_name; or echo (hulk::dim)(hulk::branch_name)
+    echo (thor::status::color)" ≡ "(thor::snd)(begin
+      git_is_touched; and thor::branch_name; or echo (thor::dim)(thor::branch_name)
     end)(off)
   else
-    echo (hulk::status::color)" ≡"(off)
+    echo (thor::status::color)" ≡"(off)
   end
 end
